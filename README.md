@@ -1,4 +1,4 @@
-# 🤖 Assistant de Recherche Multi-Agent
+#  Assistant de Recherche Multi-Agent
 
 <div align="center">
 
@@ -10,48 +10,48 @@
 
 **Un système multi-agent intelligent orchestré avec LangGraph pour la recherche et l'analyse d'informations automatisées**
 
-[📖 Documentation](#-documentation) • [🚀 Installation](#-installation-rapide) • [🎯 Démo](#-démo) • [🤝 Contribution](#-contribution)
+[ Documentation](#-documentation) • [🚀 Installation](#-installation-rapide) • [🎯 Démo](#-démo) • [🤝 Contribution](#-contribution)
 
 </div>
 
 ---
 
-## 📋 Table des Matières
+##  Table des Matières
 
-- [🌟 Aperçu](#-aperçu)
-- [🏗️ Architecture](#️-architecture)
-- [✨ Fonctionnalités](#-fonctionnalités)
-- [🚀 Installation Rapide](#-installation-rapide)
-- [🎯 Utilisation](#-utilisation)
-- [📊 Workflow](#-workflow)
-- [🔧 Configuration](#-configuration)
-- [📚 API Documentation](#-api-documentation)
-- [🧪 Tests](#-tests)
-- [🐳 Docker](#-docker)
-- [📈 Performance](#-performance)
-- [🤝 Contribution](#-contribution)
-- [📄 License](#-license)
+- [ Aperçu](#-aperçu)
+- [ Architecture](#️-architecture)
+- [ Fonctionnalités](#-fonctionnalités)
+- [ Installation Rapide](#-installation-rapide)
+- [ Utilisation](#-utilisation)
+- [ Workflow](#-workflow)
+- [ Configuration](#-configuration)
+- [ API Documentation](#-api-documentation)
+- [ Tests](#-tests)
+- [ Docker](#-docker)
+- [ Performance](#-performance)
+- [ Contribution](#-contribution)
+- [ License](#-license)
 
 ---
 
-## 🌟 Aperçu
+##  Aperçu
 
 L'**Assistant de Recherche Multi-Agent** est un système d'intelligence artificielle avancé qui automatise le processus de recherche, d'analyse et de synthèse d'informations. Utilisant une architecture multi-agent orchestrée par **LangGraph**, le système coordonne sept agents spécialisés pour produire des analyses de haute qualité.
 
-### 🎯 Problème Résolu
+###  Problème Résolu
 
 - **Recherche manuelle chronophage** → Automatisation intelligente
 - **Qualité variable des synthèses** → Validation multi-niveau
 - **Manque de traçabilité** → Historique complet et métriques
 - **Formats rigides** → Adaptation stylistique dynamique
 
-### 🚀 Valeur Ajoutée
+###  Valeur Ajoutée
 
 ```mermaid
 graph LR
-    A[📝 Requête] --> B[🤖 Système Multi-Agent] --> C[📄 Synthèse Qualifiée]
-    B --> D[📊 Métriques] 
-    B --> E[🗄️ Historique]
+    A[ Requête] --> B[ Système Multi-Agent] --> C[ Synthèse Qualifiée]
+    B --> D[ Métriques] 
+    B --> E[ Historique]
     
     style A fill:#e3f2fd
     style B fill:#f3e5f5
@@ -60,33 +60,33 @@ graph LR
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
-### 🧩 Vue d'Ensemble
+###  Vue d'Ensemble
 
 ```mermaid
 graph TB
-    subgraph "🖥️ Interface Layer"
+    subgraph " Interface Layer"
         UI[Streamlit UI]
         API[FastAPI REST]
     end
     
-    subgraph "🧠 Orchestration Layer"
+    subgraph " Orchestration Layer"
         ORCH[Orchestrator]
         LG[LangGraph Engine]
         STATE[Shared State]
     end
     
-    subgraph "🤖 Agent Layer"
-        RA[🔍 Research]
-        SA[📝 Summarizer]
-        EA[✍️ Editor]
-        VA[✅ Validator]
-        FA[💬 Feedback]
-        MA[🗄️ Memory]
+    subgraph " Agent Layer"
+        RA[ Research]
+        SA[ Summarizer]
+        EA[ Editor]
+        VA[ Validator]
+        FA[ Feedback]
+        MA[ Memory]
     end
     
-    subgraph "🌐 External Services"
+    subgraph " External Services"
         TAVILY[Tavily API]
         GEMINI[Gemini 2.0]
         STORAGE[JSON Storage]
@@ -114,66 +114,66 @@ graph TB
     style STATE fill:#f39c12,color:#fff
 ```
 
-### 🤖 Agents Spécialisés
+###  Agents Spécialisés
 
 | Agent | Rôle | Technologie | Description |
 |-------|------|-------------|-------------|
-| 🔍 **Research** | Recherche Web | Tavily API | Collecte d'informations contextualisées |
-| 📝 **Summarizer** | Synthèse | Gemini 2.0 | Résumé intelligent et structuré |
-| ✍️ **Editor** | Édition | Gemini 2.0 | Adaptation stylistique du contenu |
-| ✅ **Validator** | Validation | Logique métier | Contrôle qualité multi-critères |
-| 💬 **Feedback** | Retours | Système interne | Collecte et analyse des retours |
-| 🗄️ **Memory** | Persistance | JSON/Redis | Historique et métriques |
+|  **Research** | Recherche Web | Tavily API | Collecte d'informations contextualisées |
+|  **Summarizer** | Synthèse | Gemini 2.0 | Résumé intelligent et structuré |
+|  **Editor** | Édition | Gemini 2.0 | Adaptation stylistique du contenu |
+|  **Validator** | Validation | Logique métier | Contrôle qualité multi-critères |
+|  **Feedback** | Retours | Système interne | Collecte et analyse des retours |
+| **Memory** | Persistance | JSON/Redis | Historique et métriques |
 
 ---
 
-## ✨ Fonctionnalités
+##  Fonctionnalités
 
-### 🎯 Fonctionnalités Principales
+###  Fonctionnalités Principales
 
-- **🔍 Recherche Intelligente** : Utilisation de l'API Tavily pour des résultats pertinents
-- **📝 Synthèse Automatique** : Génération de résumés structurés avec Gemini 2.0
-- **✍️ Adaptation Stylistique** : Support de 4 styles (académique, journalistique, technique, vulgarisation)
-- **✅ Validation Multi-Niveau** : Contrôle qualité automatique et validation humaine
-- **📊 Métriques Avancées** : Suivi des performances et de la qualité
-- **🗄️ Mémoire Persistante** : Historique complet des recherches
+- **Recherche Intelligente** : Utilisation de l'API Tavily pour des résultats pertinents
+- **Synthèse Automatique** : Génération de résumés structurés avec Gemini 2.0
+- **Adaptation Stylistique** : Support de 4 styles (académique, journalistique, technique, vulgarisation)
+- **Validation Multi-Niveau** : Contrôle qualité automatique et validation humaine
+- **Métriques Avancées** : Suivi des performances et de la qualité
+- **Mémoire Persistante** : Historique complet des recherches
 
-### 🚀 Fonctionnalités Avancées
+###  Fonctionnalités Avancées
 
-- **🔄 Orchestration LangGraph** : Workflows complexes avec branchements conditionnels
-- **🎨 Interface Utilisateur** : Streamlit pour l'interaction intuitive
-- **🌐 API REST** : Intégration facile avec d'autres systèmes
-- **🐳 Docker Ready** : Déploiement simplifié
-- **📈 Monitoring** : Tableaux de bord de performance
-- **🔧 Configuration Flexible** : Paramétrage via variables d'environnement
+- **Orchestration LangGraph** : Workflows complexes avec branchements conditionnels
+- **Interface Utilisateur** : Streamlit pour l'interaction intuitive
+- **API REST** : Intégration facile avec d'autres systèmes
+- **Docker Ready** : Déploiement simplifié
+- **Monitoring** : Tableaux de bord de performance
+- **Configuration Flexible** : Paramétrage via variables d'environnement
 
 ---
 
-## 🚀 Installation Rapide
+## Installation Rapide
 
-### 📋 Prérequis
+###  Prérequis
 
 - **Python 3.11+**
 - **Clés API** :
   - [Google Gemini API](https://makersuite.google.com/app/apikey)
   - [Tavily API](https://tavily.com/)
 
-### ⚡ Installation en 3 étapes
+###  Installation en 3 étapes
 
 ```bash
-# 1️⃣ Cloner le projet
+# 1️ Cloner le projet
 git clone https://github.com/votre-username/assistant-recherche-multi-agent.git
 cd assistant-recherche-multi-agent
 
-# 2️⃣ Installer les dépendances
+# 2️ Installer les dépendances
 pip install -r requirements.txt
 
-# 3️⃣ Configurer les variables d'environnement
+# 3️ Configurer les variables d'environnement
 cp .env.example .env
 # Éditez .env avec vos clés API
 ```
 
-### 🔧 Configuration Rapide
+###  Configuration Rapide
 
 ```bash
 # .env
@@ -181,7 +181,7 @@ GEMINI_API_KEY=your_gemini_api_key_here
 TAVILY_API_KEY=your_tavily_api_key_here
 ```
 
-### 🎯 Lancement
+###  Lancement
 
 ```bash
 # Démarrer l'API
@@ -193,9 +193,9 @@ streamlit run app_streamlit.py
 
 ---
 
-## 🎯 Utilisation
+##  Utilisation
 
-### 🌐 Via l'API REST
+###  Via l'API REST
 
 ```bash
 curl -X POST "http://localhost:8000/research" \
@@ -207,7 +207,7 @@ curl -X POST "http://localhost:8000/research" \
   }'
 ```
 
-### 🖥️ Via l'Interface Streamlit
+###  Via l'Interface Streamlit
 
 1. **Accédez** à `http://localhost:8501`
 2. **Saisissez** votre requête de recherche
@@ -215,7 +215,7 @@ curl -X POST "http://localhost:8000/research" \
 4. **Lancez** le processus multi-agent
 5. **Interagissez** avec les résultats intermédiaires
 
-### 🐍 Via Python
+###  Via Python
 
 ```python
 from orchestrator import orchestrator
@@ -233,34 +233,34 @@ asyncio.run(main())
 
 ---
 
-## 📊 Workflow
+##  Workflow
 
-### 🔄 Flux Principal
+###  Flux Principal
 
 ```mermaid
 flowchart LR
-    A[🚀 Début] --> B[🔍 Research] --> C[📝 Summary] --> D[✍️ Edit] --> E{✅ Valid?}
-    E -->|❌ Rejet| D
-    E -->|✅ OK| F[💬 Feedback] --> G[🗄️ Memory] --> H[🏁 Fin]
+    A[ Début] --> B[ Research] --> C[ Summary] --> D[ Edit] --> E{ Valid?}
+    E -->| Rejet| D
+    E -->| OK| F[ Feedback] --> G[ Memory] --> H[ Fin]
     
     style A fill:#27ae60,color:#fff
     style H fill:#27ae60,color:#fff
     style E fill:#f39c12,color:#fff
 ```
 
-### 📈 Métriques Collectées
+###  Métriques Collectées
 
 ```mermaid
 graph LR
-    subgraph "📊 Métriques"
-        TIME[⏱️ Temps]
-        SUCCESS[✅ Succès]
-        QUALITY[💎 Qualité]
+    subgraph " Métriques"
+        TIME[ Temps]
+        SUCCESS[ Succès]
+        QUALITY[ Qualité]
     end
     
-    subgraph "🎯 Actions"
-        OPTIMIZE[⚡ Optimiser]
-        IMPROVE[🔧 Améliorer]
+    subgraph " Actions"
+        OPTIMIZE[ Optimiser]
+        IMPROVE[ Améliorer]
     end
     
     TIME --> OPTIMIZE
@@ -271,20 +271,20 @@ graph LR
     style IMPROVE fill:#27ae60,color:#fff
 ```
 
-### 🎨 Styles de Rédaction
+###  Styles de Rédaction
 
 | Style | Caractéristiques | Cas d'usage |
 |-------|------------------|-------------|
-| **🎓 Académique** | Langage précis, références, structure claire | Publications, recherches |
-| **📰 Journalistique** | Accessible, titres accrocheurs | Articles, blog posts |
-| **🔧 Technique** | Terminologie spécialisée, précision | Documentation, specs |
-| **🗣️ Vulgarisation** | Concepts simplifiés, exemples | Formation, présentation |
+| **Académique** | Langage précis, références, structure claire | Publications, recherches |
+| **Journalistique** | Accessible, titres accrocheurs | Articles, blog posts |
+| **Technique** | Terminologie spécialisée, précision | Documentation, specs |
+| **Vulgarisation** | Concepts simplifiés, exemples | Formation, présentation |
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
-### ⚙️ Variables d'Environnement
+###  Variables d'Environnement
 
 ```bash
 # APIs
@@ -304,7 +304,7 @@ TAVILY_SEARCH_DEPTH=advanced
 MEMORY_FILE=research_memory.json
 ```
 
-### 🎛️ Configuration Avancée
+###  Configuration Avancée
 
 ```python
 # config.py
@@ -324,9 +324,9 @@ class Config:
 
 ---
 
-## 📚 API Documentation
+##  API Documentation
 
-### 🔌 Endpoints Principaux
+###  Endpoints Principaux
 
 | Endpoint | Méthode | Description | Statut |
 |----------|---------|-------------|---------|
@@ -337,7 +337,7 @@ class Config:
 | `/memory/stats` | GET | Statistiques | ✅ |
 | `/memory` | DELETE | Effacer l'historique | ✅ |
 
-### 📝 Exemple de Réponse
+###  Exemple de Réponse
 
 ```json
 {
@@ -353,16 +353,16 @@ class Config:
 }
 ```
 
-### 📖 Documentation Interactive
+###  Documentation Interactive
 
 - **Swagger UI** : `http://localhost:8000/docs`
 - **ReDoc** : `http://localhost:8000/redoc`
 
 ---
 
-## 🧪 Tests
+##  Tests
 
-### 🔬 Stratégie de Test
+###  Stratégie de Test
 
 ```mermaid
 graph TB
@@ -385,7 +385,7 @@ graph TB
     E2E --> WORKFLOW
 ```
 
-### 🚀 Exécution des Tests
+###  Exécution des Tests
 
 ```bash
 # Tests unitaires
@@ -401,7 +401,7 @@ pytest tests/performance/
 pytest --cov=. --cov-report=html
 ```
 
-### 📊 Rapports de Test
+###  Rapports de Test
 
 ```bash
 # Générer un rapport de couverture
@@ -412,9 +412,9 @@ coverage html
 
 ---
 
-## 🐳 Docker
+##  Docker
 
-### 🏗️ Build et Run
+###  Build et Run
 
 ```bash
 # Build de l'image
@@ -427,7 +427,7 @@ docker run -d -p 8000:8000 \
   research-assistant
 ```
 
-### 🚀 Docker Compose
+###  Docker Compose
 
 ```yaml
 # docker-compose.yml
@@ -450,11 +450,11 @@ services:
 docker-compose up -d
 ```
 
-### 🎯 Architecture de Déploiement
+###  Architecture de Déploiement
 
 ```mermaid
 graph TB
-    subgraph "🌐 Load Balancer"
+    subgraph " Load Balancer"
         LB[Nginx/HAProxy]
     end
     
@@ -464,7 +464,7 @@ graph TB
         APP3[Instance 3]
     end
     
-    subgraph "💾 Data"
+    subgraph " Data"
         CACHE[Redis Cache]
         DB[Database]
         STORAGE[File Storage]
@@ -485,19 +485,19 @@ graph TB
 
 ---
 
-## 📈 Performance
+##  Performance
 
-### 🎯 Métriques Clés
+###  Métriques Clés
 
 | Métrique | Valeur | Objectif |
 |----------|--------|----------|
-| **⏱️ Temps de traitement** | 15-30s | < 45s |
-| **✅ Taux de succès** | 95% | > 90% |
-| **🎯 Taux de validation** | 90% | > 85% |
-| **🚀 Disponibilité** | 99.5% | > 99% |
-| **💾 Usage mémoire** | < 512MB | < 1GB |
+| **Temps de traitement** | 15-30s | < 45s |
+| **Taux de succès** | 95% | > 90% |
+| **Taux de validation** | 90% | > 85% |
+| **Disponibilité** | 99.5% | > 99% |
+| **Usage mémoire** | < 512MB | < 1GB |
 
-### 📊 Benchmarks
+###  Benchmarks
 
 ```bash
 # Test de charge avec Apache Bench
@@ -507,76 +507,26 @@ ab -n 100 -c 10 http://localhost:8000/health
 pytest tests/performance/ --benchmark-only
 ```
 
-### ⚡ Optimisations
+###  Optimisations
 
-- **🗄️ Cache intelligent** : Redis pour les résultats fréquents
-- **🔄 Parallélisation** : Traitement concurrent des requêtes
-- **⚖️ Rate limiting** : Protection contre la surcharge
-- **🔗 Connection pooling** : Optimisation des connexions API
-
----
-
-## 🤝 Contribution
-
-### 🎯 Comment Contribuer
-
-1. **🍴 Fork** le projet
-2. **🌿 Créez** une branche feature (`git checkout -b feature/nouvelle-fonctionnalite`)
-3. **💻 Commitez** vos changements (`git commit -am 'Ajout nouvelle fonctionnalité'`)
-4. **📤 Push** vers la branche (`git push origin feature/nouvelle-fonctionnalite`)
-5. **🔄 Créez** une Pull Request
-
-### 📝 Guidelines
-
-- **✅ Tests** : Ajoutez des tests pour toute nouvelle fonctionnalité
-- **📖 Documentation** : Mettez à jour la documentation
-- **🎨 Style** : Respectez PEP 8 et les conventions du projet
-- **💬 Messages** : Commits clairs et descriptifs
-
-### 🐛 Signaler un Bug
-
-Utilisez les [GitHub Issues](https://github.com/votre-username/assistant-recherche-multi-agent/issues) avec le template :
-
-- **🎯 Description** : Que s'est-il passé ?
-- **🔄 Reproduction** : Étapes pour reproduire
-- **💻 Environnement** : OS, Python, versions
-- **📋 Logs** : Messages d'erreur pertinents
-
-### 💡 Proposer une Fonctionnalité
-
-1. **💬 Discussion** : Ouvrez une issue de discussion
-2. **📋 Spécification** : Détaillez la fonctionnalité
-3. **🎨 Design** : Proposez une approche
-4. **👥 Consensus** : Obtenez l'accord de la communauté
+- **Cache intelligent** : Redis pour les résultats fréquents
+- **Parallélisation** : Traitement concurrent des requêtes
+- **Rate limiting** : Protection contre la surcharge
+- **Connection pooling** : Optimisation des connexions API
 
 ---
 
-## 🏆 Roadmap
 
-### 🚀 Version 1.1 (Q2 2024)
+###  Vision Long Terme
 
-- [ ] 🔍 **Agents spécialisés supplémentaires** (Fact-checking, Traduction)
-- [ ] 🎨 **Interface utilisateur enrichie** (Dashboard avancé)
-- [ ] ⚡ **Optimisations de performance** (Cache distribué)
-- [ ] 🔧 **Configuration dynamique** (Interface admin)
-
-### 🌟 Version 2.0 (Q4 2024)
-
-- [ ] 🧠 **Apprentissage adaptatif** (Amélioration continue)
-- [ ] 🌐 **API GraphQL** (Requêtes flexibles)
-- [ ] 📊 **Analytics avancées** (Tableaux de bord BI)
-- [ ] 🔒 **Sécurité renforcée** (OAuth, RBAC)
-
-### 🚀 Vision Long Terme
-
-- [ ] 🤖 **Agents autonomes** (Auto-amélioration)
-- [ ] 🎭 **Multi-modalité** (Images, audio, vidéo)
-- [ ] 🌍 **Réseau d'agents** (Collaboration inter-systèmes)
-- [ ] 🧠 **AGI Integration** (Capacités générales)
+- [ ]  **Agents autonomes** (Auto-amélioration)
+- [ ]  **Multi-modalité** (Images, audio, vidéo)
+- [ ]  **Réseau d'agents** (Collaboration inter-systèmes)
+- [ ]  **AGI Integration** (Capacités générales)
 
 ---
 
-## 📊 Statistiques du Projet
+## Statistiques du Projet
 
 <div align="center">
 
@@ -609,9 +559,9 @@ in the Software without restriction...
 
 ---
 
-## 🙏 Remerciements
+##  Remerciements
 
-### 🌟 Technologies Utilisées
+###  Technologies Utilisées
 
 - **[LangGraph](https://python.langchain.com/docs/langgraph)** - Orchestration multi-agent
 - **[FastAPI](https://fastapi.tiangolo.com/)** - Framework API moderne
@@ -622,7 +572,7 @@ in the Software without restriction...
 
 ---
 
-## 📞 Contact & Support
+##  Contact & Support
 - abdelilahourti@gmail.com
 
 
