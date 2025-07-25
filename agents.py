@@ -23,7 +23,7 @@ class ResearchAgent(BaseAgent):
     
     def __init__(self):
         super().__init__("Research Agent")
-        self.client = TavilyClient(api_key=Config.TAVILY_API_KEY)
+        self.client = TavilyClient(api_key=Config.get_tavily_api_key())
     
     def execute(self, state: AgentState) -> AgentState:
         """Effectue une recherche web sur la requête"""
@@ -62,7 +62,7 @@ class SummarizerAgent(BaseAgent):
     
     def __init__(self):
         super().__init__("Summarizer Agent")
-        genai.configure(api_key=Config.GEMINI_API_KEY)
+        genai.configure(api_key=Config.get_gemini_api_key())
         self.model = genai.GenerativeModel(Config.GEMINI_MODEL)
     
     def execute(self, state: AgentState) -> AgentState:
@@ -108,11 +108,11 @@ class EditorAgent(BaseAgent):
     
     def __init__(self):
         super().__init__("Editor Agent")
-        genai.configure(api_key=Config.GEMINI_API_KEY)
+        genai.configure(api_key=Config.get_gemini_api_key())
         self.model = genai.GenerativeModel(Config.GEMINI_MODEL)
     
-    def execute(self, state: AgentState) -> AgentState:
-        """Édite et reformule le contenu selon le style demandé"""
+    def execute(self, state: AgentState, human_instructions: str = None) -> AgentState:
+        """Édite et reformule le contenu selon le style demandé et instructions humaines optionnelles"""
         if not state.summary:
             state.error_message = "Aucun résumé à éditer"
             return state
@@ -122,18 +122,17 @@ class EditorAgent(BaseAgent):
         try:
             prompt = f"""
             Tu es un rédacteur expert. Reformule le texte suivant dans un style {state.style}.
-            
             Texte original:
             {state.summary}
-            
             Instructions pour le style '{state.style}':
             - Si académique: utilise un langage précis, des références, une structure claire
             - Si journalistique: rends le texte accessible, utilise des titres accrocheurs
             - Si technique: utilise la terminologie appropriée, sois précis
             - Si vulgarisation: simplifie les concepts, utilise des exemples
-            
-            Conserve toute l'information importante tout en adaptant le style.
             """
+            if human_instructions:
+                prompt += f"\nInstructions humaines supplémentaires : {human_instructions}\nApplique strictement ces instructions."
+            prompt += "\nConserve toute l'information importante tout en adaptant le style."
             
             response = self.model.generate_content(prompt)
             state.edited_content = response.text

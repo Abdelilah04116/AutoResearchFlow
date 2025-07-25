@@ -10,6 +10,15 @@ from orchestrator import orchestrator
 from models import ResearchRequest, ResearchOutput, SearchResult, AgentState
 from config import Config
 
+from dotenv import load_dotenv
+load_dotenv()
+
+from config import Config
+Config.validate()
+
+import os
+print("GEMINI_API_KEY =", os.getenv("GEMINI_API_KEY"))
+
 # Configuration de l'application FastAPI
 app = FastAPI(
     title="Assistant de Recherche Multi-Agent",
