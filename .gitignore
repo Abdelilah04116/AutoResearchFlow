@@ -1,0 +1,24 @@
+# Environnements virtuels
+venv/
+__pycache__/
+
+# Fichiers d'environnement
+.env
+
+
+# Fichiers temporaires/compilés
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Cache et historique
+*.cache
+*.sqlite3
+
+# Fichiers de test et fichiers générés
+research_memory.json
