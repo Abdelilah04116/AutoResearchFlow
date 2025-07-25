@@ -62,41 +62,59 @@ class MultiAgentOrchestrator:
         
         return workflow.compile()
     
-    def _research_node(self, state: AgentState) -> dict:
-        """Nœud de recherche"""
-        return self.research_agent.execute(state).__dict__
+    def _research_node(self, state) -> dict:
+        if not isinstance(state, dict):
+            state = state.__dict__
+        from models import AgentState
+        agent_state = AgentState(**state)
+        return self.research_agent.execute(agent_state).__dict__
     
-    def _summarize_node(self, state: AgentState) -> dict:
-        """Nœud de résumé"""
-        return self.summarizer_agent.execute(state).__dict__
+    def _summarize_node(self, state) -> dict:
+        if not isinstance(state, dict):
+            state = state.__dict__
+        from models import AgentState
+        agent_state = AgentState(**state)
+        return self.summarizer_agent.execute(agent_state).__dict__
     
-    def _edit_node(self, state: dict) -> dict:
-        """Nœud d'édition avec instructions humaines si présentes"""
+    def _edit_node(self, state) -> dict:
+        if not isinstance(state, dict):
+            state = state.__dict__
         human_instructions = state.get("human_instructions")
-        # Reconstruire AgentState si besoin
         from models import AgentState
         agent_state = AgentState(**state)
         return self.editor_agent.execute(agent_state, human_instructions).__dict__
     
-    def _validate_node(self, state: AgentState) -> dict:
-        """Nœud de validation"""
-        return self.validator_agent.execute(state).__dict__
+    def _validate_node(self, state) -> dict:
+        if not isinstance(state, dict):
+            state = state.__dict__
+        from models import AgentState
+        agent_state = AgentState(**state)
+        return self.validator_agent.execute(agent_state).__dict__
     
-    def _feedback_node(self, state: AgentState) -> dict:
-        """Nœud de feedback"""
-        return self.feedback_agent.execute(state).__dict__
+    def _feedback_node(self, state) -> dict:
+        if not isinstance(state, dict):
+            state = state.__dict__
+        from models import AgentState
+        agent_state = AgentState(**state)
+        return self.feedback_agent.execute(agent_state).__dict__
     
-    def _memory_node(self, state: AgentState) -> dict:
-        """Nœud de mémorisation"""
-        return self.memory_agent.execute(state).__dict__
+    def _memory_node(self, state) -> dict:
+        if not isinstance(state, dict):
+            state = state.__dict__
+        from models import AgentState
+        agent_state = AgentState(**state)
+        return self.memory_agent.execute(agent_state).__dict__
     
-    def _finalize_node(self, state: AgentState) -> dict:
-        """Nœud de finalisation"""
-        if state.edited_content and state.validation_approved:
-            state.final_result = state.edited_content
+    def _finalize_node(self, state) -> dict:
+        if not isinstance(state, dict):
+            state = state.__dict__
+        from models import AgentState
+        agent_state = AgentState(**state)
+        if agent_state.edited_content and agent_state.validation_approved:
+            agent_state.final_result = agent_state.edited_content
         else:
-            state.final_result = "Traitement incomplet ou rejeté"
-        return state.__dict__
+            agent_state.final_result = "Traitement incomplet ou rejeté"
+        return agent_state.__dict__
     
     def _should_continue_after_validation(self, state) -> str:
         """Fonction de décision après validation"""
